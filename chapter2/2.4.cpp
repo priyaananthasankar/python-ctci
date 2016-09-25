@@ -1,6 +1,6 @@
 // Author : Priya Ananthasankar
 // Goal: Given 2 linked lists, where numbers are stored in reverse order, add the lists.
-// Commands: g++ 2.5.cpp; ./a.out
+// Commands: g++ 2.4.cpp; ./a.out
 #include <iostream>
 using namespace std;
 
