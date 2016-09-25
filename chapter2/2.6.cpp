@@ -1,7 +1,7 @@
 // Author : Priya Ananthasankar
 // Goal: Given a corrupt circular linked list , return the node at the beginning of the loop
 // (OR) identify if a given linked list is circular and return the node at the beginning of the loop.
-// Commands: g++ 2.7.cpp; ./a.out
+// Commands: g++ 2.6.cpp; ./a.out
 #include <iostream>
 using namespace std;
 
