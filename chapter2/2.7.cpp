@@ -35,7 +35,7 @@ public:
 		Node* n = head;
 		char val = head -> x;
 		head = head -> next;
-		delete head;
+		delete n;
 		return val;
 	}
 
