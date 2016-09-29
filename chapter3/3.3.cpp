@@ -1,7 +1,9 @@
 // Author : Priya Ananthasankar
-// Goal: Given a stack implemented as a linked list write push pop and min
-// in such a way that all three will be done in O(1) time.
-// Commands: g++ 3.2.cpp; ./a.out
+// Goal: Given a set of stacks implement push and pop in such a way that
+// pushing beyond capacity of internal stack will allocate a new stack.
+// Popping beyonf capacity of internal stacks will remove the stack and roll back
+// to previous stack. Simulate a plate of stacks.
+// Commands: g++ 3.3.cpp; ./a.out
 #include<iostream>
 #include<vector>
 using namespace std;
