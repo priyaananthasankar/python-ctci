@@ -119,6 +119,20 @@ class SetOfStacks {
   		   	   }
   		   }
 
+  		   int popAt(int stackNum){
+  		   	if(setOfStacks.empty()){  		   	   	
+  		   	   	return -1;
+  		   	   } else{
+  		   	   		Stack* current = &(setOfStacks.at(stackNum));
+  		   	   		int popped = current -> pop();
+  		   	   		if(current->isEmpty()){
+  		   	   	  	setOfStacks.erase(setOfStacks.begin() + currentStack);
+  		   	   	  	currentStack = currentStack - 1;
+  		   	   	  }
+  		   	   	  return popped;
+  		   	   }
+  		   }
+
   		   void print(){
   		   	  for (int i =0;i<setOfStacks.size();i++){
   		   	  	cout << "Stack number: " << i+1 << endl;
@@ -157,5 +171,10 @@ int main(){
 		cout << "Popped " << pop << endl;
 	}
 
+	plateStack -> print();
+
+	cout << "Enter specific substack you want to pop at: " << endl;
+	cin >> item;
+	int pop = plateStack -> popAt(item-1);
 	plateStack -> print();
 }
