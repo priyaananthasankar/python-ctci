@@ -42,8 +42,9 @@ public:
 	}	
 
 	int pop(){
-		return arr[top];
+		int item = arr[top];
 		top = top-1;
+		return item;
 	}
 
 	bool capacityReached(){
@@ -64,6 +65,7 @@ public:
 		for(int i=top;i>=0;i--){
 			cout << arr[i] << " ";
 		}
+		cout << endl;
 	}
 	
 };
@@ -87,28 +89,27 @@ class SetOfStacks {
   		   		setOfStacks.push_back(*s);
   		   		currentStack = 0;
   		   	}else{
-  		   		Stack current = setOfStacks.at(currentStack);
-  		   		if(current.capacityReached()){
+  		   		Stack* current = &(setOfStacks.at(currentStack));
+  		   		if(current->capacityReached()){
   		   			Stack* s = new Stack();
   		   			s->setStackNumber(currentStack + 1);
   		   			s->push(item);
   		   			setOfStacks.push_back(*s);
   		   			currentStack  = currentStack + 1;
   		   		}else{
-  		   			current.push(item);
+  		   			current->push(item);
   		   		}
   		   	}
   		   	 
   		   }
 
   		   int pop(){
-  		   	   if(setOfStacks.empty()){
-  		   	   	cout << "nothing to pop";
-  		   	   	return 0;
+  		   	   if(setOfStacks.empty()){  		   	   	
+  		   	   	return -1;
   		   	   }else{
-  		   	   	  Stack current = setOfStacks.at(currentStack);
-  		   	   	  int popped = current.pop();
-  		   	   	  if(current.isEmpty()){
+  		   	   	  Stack* current = &(setOfStacks.at(currentStack));
+  		   	   	  int popped = current->pop();
+  		   	   	  if(current->isEmpty()){
   		   	   	  	setOfStacks.erase(setOfStacks.begin() + currentStack);
   		   	   	  	currentStack = currentStack - 1;
   		   	   	  }
@@ -116,24 +117,43 @@ class SetOfStacks {
   		   	   }
   		   }
 
+  		   void print(){
+  		   	  for (int i =0;i<setOfStacks.size();i++){
+  		   	  	cout << "Stack number: " << i+1 << endl;
+  		   	  	Stack c = setOfStacks.at(i);
+  		   	  	c.print();
+  		   	  }
+  		   }
+
 };
 
 
 int main(){
-	Stack stack;  int length;
 
-	cout << "Enter the length of the stack: " << endl;
-	cin >> length;
+	SetOfStacks* plateStack = new SetOfStacks();
+	cout << "Enter the length of items :" <<endl;
+	int length;
+	cin >> length; int item;
 
-	int item;
-
-	cout << "Enter the items: " << endl;
+	// Push items;
+	cout <<"Enter items: " << endl;
 	for(int i=0;i<length;i++){
 		cin >> item;
-		stack.push(item);
+		plateStack->push(item);
 	}
 
-	stack.print();
-	stack.pop();
-	stack.print();
+	cout << "Enter how much you want to pop out: "<< endl;
+	cin >>item;
+	// Pop out more than capacity of one stack. Make sure
+	// it rolls back
+	for(int i=0;i<item;i++){
+		int pop = plateStack -> pop();
+		if(pop == -1){
+			cout << "Nothing to pop" << endl;
+			break;
+		}
+		cout << "Popped " << pop << endl;
+	}
+
+	plateStack -> print();
 }
