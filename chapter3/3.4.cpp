@@ -1,6 +1,6 @@
 // Author : Priya Ananthasankar
 // Goal: Write a program to simulate Tower of Hanoi problem
-// Commands: g++ 3.2.cpp; ./a.out
+// Commands: g++ 3.4.cpp; ./a.out
 #include<iostream>
 using namespace std;
 
@@ -22,6 +22,6 @@ int main(){
 	cout << "Enter the number of disks: " << endl;
 	cin >> n;
 
-	hanoi(n,0,1,2);
+	hanoi(n-1,0,1,2);
 
 }
