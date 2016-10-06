@@ -72,6 +72,8 @@ void sort(Stack* targetStack, Stack* bufferStack){
 	}
 	 while(targetStack -> getTop() != NULL){
 	 	int swapitem = targetStack -> pop();
+
+	 	// For descending order just change the > to <. 
 	 	while((bufferStack -> getTop() != NULL) && (swapitem > bufferStack -> getTop() -> x)){
 	 	  int item = bufferStack -> pop();
 	 	  targetStack->push(item);
