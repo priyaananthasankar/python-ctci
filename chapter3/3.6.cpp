@@ -72,7 +72,7 @@ void sort(Stack* targetStack, Stack* bufferStack){
 	}
 	 while(targetStack -> getTop() != NULL){
 	 	int swapitem = targetStack -> pop();
-	 	while((bufferStack -> getTop() != NULL) && (swapitem < bufferStack -> getTop() -> x)){
+	 	while((bufferStack -> getTop() != NULL) && (swapitem > bufferStack -> getTop() -> x)){
 	 	  int item = bufferStack -> pop();
 	 	  targetStack->push(item);
 	 	}
