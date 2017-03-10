@@ -1,3 +1,5 @@
+/** Delete all occurrences of a key in an array
+    and shift the array */
 public class DeleteKey {
 
   public static void main(String args[]){
